@@ -1,0 +1,496 @@
+.header {
+  text-align: center;
+  position: absolute;
+  color: rgb(100, 1, 120);
+  font-size: 50px;
+  font-weight: 800;
+  text-shadow: 0 10px 10px rgba(0, 0, 0, .15);
+  width: 500px;
+  height: 70px;
+  border-radius: 50%;
+  margin: 20px 60px 60px 60px;
+  position: relative;
+}
+
+.header:hover {
+  cursor: pointer;
+}
+.edit_save{
+  font-size: 21px !important;
+}
+.edit_trash, .edit_edit, .edit_save, .edit_check {
+  position: absolute;
+  margin-right: 20px;
+  top: 11px;
+  left: 42px;
+  font-size: 20px;
+  filter: none !important;
+  color: rgb(107, 43, 97);
+}
+
+.edit_check {
+  float: right;
+  left: 466px;
+}
+
+.edit_trash {
+  left: 12px;
+}
+
+h3{
+  margin: 0;
+}
+
+pre {
+  min-height: 160px;
+  white-space: pre;
+  padding-left: 5px;
+  font-size: 17px;
+  font-family: sans-serif;
+  margin: 0px 5px 0px 2px;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  overflow-x: auto;
+  overflow-y: auto;
+}
+
+#reserved {
+  z-index: 1000;
+}
+
+#reserved div {
+  z-index: 1000;
+  position: absolute;
+  width: 500px;
+  height: 220px;
+  background-color: rgba(207, 162, 200, 0.75);
+  border-radius: 10px;
+  transition: 1s;
+  opacity: 0;
+  overflow-y: auto;
+  top: 150px;
+  box-shadow: 1px 1px 1px 1px rgb(54, 8, 54);
+}
+#reserved h3{
+  min-height: 40px;
+}
+.review_div:hover {
+  background-color: rgba(207, 162, 200, 0.8);
+}
+
+#reserved i:hover {
+  cursor: pointer;
+  opacity: 0.8;
+  color: rgb(145, 115, 145);
+}
+
+.sort {
+  background: rgb(221, 196, 250);
+  border-radius: 10px;
+  font-size: 20px;
+  background-color: rgb(255, 255, 255);
+  top: -40px;
+  left: 50px;
+  position: absolute;
+  margin: 0px 20px 0px 10px;
+  border: none;
+  border-bottom: 2px solid rgb(146, 96, 146);
+  color: rgb(97, 49, 97);
+  box-shadow: 2px 5px 10px 0px rgb(87, 44, 87) ;
+  transition: opacity 0.8s
+}
+
+.sort:focus {
+  outline: none;
+}
+
+.sort:hover::before {
+  top: -18px;
+  left:-10px;
+  transition: 0.8s ease-out;
+  opacity: 0.6;
+  transition-delay: 0.7s;
+}
+
+/* .sort:hover::after {
+ 
+  transition: 0.8s;
+  opacity: 0.7;
+  animation: rotating 2s linear infinite
+}
+
+@keyframes rotating {
+  from {
+    -ms-transform: rotatey(0deg);
+    -moz-transform: rotatey(0deg);
+    -webkit-transform: rotatey(0deg);
+    -o-transform: rotatey(0deg);
+    transform: rotatey(0deg);
+  }
+  to {
+    -ms-transform: rotatey(360deg);
+    -moz-transform: rotatey(360deg);
+    -webkit-transform: rotatey(360deg);
+    -o-transform: rotatey(360deg);
+    transform: rotatey(360deg);
+  }
+}
+
+.sort::before {
+  border-radius: 50%;
+  opacity: 0.3;
+  top: -5px;
+  left: 22px;
+  transform: rotate(45deg);
+  position: absolute;
+  content: '';
+  width: 16px;
+  height: 16px;
+  border: 6px solid rgb(221, 196, 250);
+  filter: blur(2px);
+  z-index: -1;
+  box-shadow: 0.3px 0.3px 0px 0.3px orangered;
+  transition: 1s;
+}
+
+.sort::after {
+  border-radius: 50%;
+  top: -9px;
+  left: 30px;
+  transform: rotate(-45deg);
+  position: absolute;
+  content: '';
+  width: 800px;
+  height:800px;
+  border: 3px solid rgb(221, 196, 250);
+  filter: blur(3px);
+  z-index: -1;
+  box-shadow: 0.1px 0.1px 0px 0.1px orangered;
+  transition: 1s;
+} */
+
+.sort:active {
+  box-shadow: 0px 3.5px 6px 0px rgb(87, 44, 87) ;
+}
+
+.sort:hover {
+  cursor: pointer;
+  color: rgba(105, 88, 105, 0.8)
+}
+a{
+  color: inherit;
+  text-decoration: none;
+  background-color: transparent;
+
+}
+#time_minus:focus-visible, #time_plus:focus-visible {
+  border: 3px solid purple;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+#s_topic {
+  left: 320px;
+}
+
+#reserved div>h3 {
+  text-align: center;
+  margin-top: 5px;
+}
+
+hr {
+  margin: 0px 0px 5px 0px;
+}
+
+#reserved div>p {
+  margin-left: 5px;
+}
+
+.music_selection {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 450px;
+  height: 450px;
+  flex-wrap: wrap;
+  border-radius: 50%;
+  flex-basis: auto;
+  /* z-index: 50; */
+}
+
+.music_selection div {
+  /* background: linear-gradient(right purple, green); */
+  margin: 0;
+  border: 0;
+  padding: 0;
+  height: 225px;
+  width: 225px;
+  /*if it's even number there will be a white line between the divs when its odd number*/
+  display: none;
+  box-sizing: border-box;
+  transition: 0;
+}
+
+.music_selection i {
+  position: absolute;
+  top: 100px;
+  left: 90px;
+  font-size: 80px;
+  display: none;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+
+.music_selection div:hover i {
+  color: white;
+}
+
+/*placed inside holderCircle. 100% width = it filled up the entire space*/
+
+.round_change {
+  position: absolute;
+  left: 70px;
+  top: 75px;
+  width: 350px;
+  height: 350px;
+  border: 2px solid #b38cb9;
+  opacity: 0.8;
+  border-radius: 100%;
+  transition: 1.3s ease-out;
+  box-shadow: 4px 4px 15px 10px rgba(105, 53, 114, 0.65);
+}
+
+.progress_ring {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.progress_bar {
+  stroke: rgb(219, 209, 218);
+  transition: 0.01s;
+  transform: scalex(-1) rotate(270deg);
+  /* starts on +x rotate 90deg to start on +y */
+  transform-origin: 50% 50%;
+  stroke-width: 1px;
+  opacity: 0;
+}
+
+.progress_bar_empty {}
+
+.progress_bar_effect {
+  stroke: rgba(243, 138, 234, 0.3);
+  stroke-dashoffset: 100;
+  transition: 0.01s;
+  transform: scalex(-1) rotate(0deg);
+  transform-origin: 50% 50%;
+  stroke-width: 19px;
+  opacity: 0;
+}
+
+svg {
+  z-index: -50;
+  transition: 0.3s
+}
+
+text {
+  fill: #23002b;
+  stroke: purple;
+  stroke-width: 2px;
+  font-size: 100px;
+  letter-spacing: 5px;
+  opacity: 0.8;
+  transition: 1.0s ease-in-out;
+  /*cubic-bezier(n,n,n,n)*/
+}
+
+.on_off, #refresh {
+  position: absolute;
+  left: 190px;
+  top: 170px;
+  opacity: 0.0;
+  color: purple;
+  font-size: 140px;
+  text-shadow: 5px 5px 1px 5px black;
+  transition: 0.4s;
+}
+
+.transition_zero {
+  transition: 0.2s !important;
+}
+
+.cur_on {
+  transition: 0.4s;
+  opacity: 0.1 !important;
+}
+
+/* svg:hover i {
+  left: 185px;
+  top: 165px;
+  font-size: 150px;
+  opacity: 0.15;
+  color: purple;
+  transition: 0.2s
+} */
+
+p {
+  color: rgba(53, 15, 53, 0.8)
+}
+
+.background_white {
+  color: rgb(255, 255, 255);
+}
+
+.dotCircle .itemDot:hover, .dotCircle .itemDot.active {
+  color: #ffffff;
+  transition: 0.5s;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#7d4ac7+0,a733bb+100 */
+  background: #7d4ac7;
+  /* Old browsers */
+  background: -moz-linear-gradient(left, #7d4ac7 0%, #a733bb 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #7d4ac7 0%, #a733bb 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #7d4ac7 0%, #a733bb 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#7d4ac7', endColorstr='#a733bb', GradientType=1);
+  /* IE6-9 */
+  border: 2px solid #ffffff;
+  -webkit-box-shadow: 0 30px 30px 0 rgba(0, 0, 0, .13);
+  -moz-box-shadow: 0 30px 30px 0 rgba(0, 0, 0, .13);
+  box-shadow: 4px 4px 12px 4px rgb(138, 92, 138);
+}
+
+#time_minus, #time_plus {
+  position: absolute;
+  top: 310px;
+  left: 260px;
+  width: 60px;
+  height: 60px;
+  font-size: 30px;
+  color: rgb(138, 92, 138);
+  background-color: rgba(223, 200, 223, 0.5);
+  border: 1px solid rgb(99, 17, 99);
+  box-shadow: 0px 3px 3.3px 1px rgba(82, 11, 64, 0.5);
+  border-radius: 50%;
+  z-index: 120;
+  transition: 0.35s;
+}
+
+.box_shadow_none {
+  box-shadow: 0px 1px 2.5px 1px rgba(82, 11, 64, 0.5) !important;
+  transition: 0.2s !important;
+}
+
+#time_minus {
+  left: 180px;
+}
+
+#time_minus, #time_plus:focus {
+  outline: none;
+}
+
+#time_minus:focus-visible, #time_plus:focus-visible {
+  border: 3px solid purple;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.music_button_stack {
+  left: 210px !important;
+  top: 200px !important;
+  color: white !important;
+}
+
+.music_color {
+  color: white !important;
+}
+
+#youtube_url_box {
+  position: relative;
+  width: 265px;
+  height: 265px;
+  border-top-right-radius: 100%;
+  top: -570px;
+  left: 300px;
+  border: 2px solid black;
+  background-color: rgba(236, 220, 234, 0.8);
+  transform: rotate(-3deg);
+}
+
+.music_selected {
+  background-color: rgba(146, 49, 138, 0.9) !important;
+  box-shadow: 5px 5px 4px 2px rgb(82, 11, 64) !important;
+}
+
+.music_deselected {
+  filter: blur(3px);
+}
+
+#youtube_url_box input {
+  position: absolute;
+  text-align: center;
+  transform: rotate(3deg);
+  background-color: rgb(250, 248, 238);
+  top: 100px;
+  left: 20px;
+  height: 50px;
+  width: 300px;
+}
+
+.dot_circle_shrink {
+  width: 100px !important;
+  left: 160px !important;
+  top: 360px !important;
+  transition: 2s !important;
+}
+
+.font_zero {
+  font-size: 0px !important;
+  ;
+}
+
+.display_none {
+  display: none !important;
+}
+
+.opacity_zero {
+  opacity: 0 !important;
+}
+
+.svg_zindex {
+  z-index: 1;
+  cursor: pointer;
+}
+
+iframe {
+  position: absolute;
+  height: 640px;
+  width: 500px;
+  bottom: -2100px;
+  left: 170px;
+  /* padding-top: 50px; */
+}
+
+#url_box {
+  position: absolute;
+  border: 2px solid black;
+  top: 500px;
+  left: 500px;
+}
+
+/* #nature ~p {
+  transform: rotate(-90deg);
+  position: relative;
+  top: 80px;
+  right:120px;
+  font-size:40px;
+  height: 100px;
+  width:150px;
+  line-break: normal;
+  border:2px solid black;
+float:inline-start;
+  flex-direction: row;
+
+} */
