@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, 
+   initial-scale=1.0,
+   maximum-scale=1.4,
+   minimum-scale=0.6">
+   <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+   <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous" />
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+   
+<script src="./Javascripts/tomatio_clock.js" defer></script>
+   <link rel="stylesheet" href= "./Stylesheets/tomato_clock.css">
+   <link rel="stylesheet" href="./Stylesheets/home_page.css" />
+   <link rel="stylesheet" href="./Stylesheets/three_topic_form.css">
+   <link id="favicon" rel="shortcut icon" type="image/x-icon" href="./Images/green_tomato.png" />
+
+   <title id="my_title">
+      Tomato Clock
+   </title>
+</head>
+
+<body>
+
+   <section class="iq-features">
+      <class class="container">
+         <div class="row align-items-center">
+            <div class="col-lg-3 col-md-12"></div>
+            <div class="col-lg-6 col-md-12">
+               <p class="header">Tomato Clock</p>
+               <div class="holderCircle">
+                  <div id="review_selection">
+                     <button id="s_time" class="sort opacity_zero">Sort by Time</button>
+                     <button id="s_topic" class="sort opacity_zero">Sort by Topic</button>
+                  </div>
+                  <div id="reserved" style="transition: 1s;">
+                  </div>
+                  <div class="round"></div>
+
+                  <svg id="svg_id" class="progress_ring" height="500" width="500">
+                     <circle id="bar" class="progress_bar attach" fill="transparent" r="200" cx="250" cy="255" />
+                     <circle id="sml" class="progress_bar_effect attach" fill="transparent" r="160" cx="245" cy="250" />
+                     <circle id="lrg" class="progress_bar_effect attach" style="transform:rotate(-90deg)"
+                        fill="transparent" r="220" cx="255" cy="250" />
+
+                     <text class="opacity_zero" id="text_timer" x="50%" y="30%" text-anchor="middle"
+                        dy="1.3em">25:00</text>
+
+                  </svg>
+                  <button class="custom opacity_zero display_none custom1" id="time_plus"><i
+                        class="fa fa-plus"></i></button>
+                  <button class="custom opacity_zero display_none custom2" id="time_minus"><i
+                        class="fa fa-minus"></i></button>
+
+                  <div class="music_selection">
+                     <a  href="#md1" rel="modal:open"><div class="music_sel " id="music_1"><i id="youtube" class="fab fa-youtube"></i></div></a>
+                    <a href="#md2" rel="modal:open"><div class="music_sel " id="music_2"><i id="nature" class="fa fa-tree"
+                           style="transform:rotate(-90deg)"></i></div> </a> 
+                    <a href="#md3" rel="modal:open" > <div class="music_sel " id="music_4"><i id="upload" class="fa fa-upload"
+                           style="transform:rotate(-180deg)"></i></div></a>
+                     <a href="#md4" rel="modal:open"><div   class="music_sel " id="music_3"><i id="cross" class="fas fa-cross"
+                           style="transform:rotate(90deg)"></i></div></a>
+
+                  </div>
+
+                  <i id="pause_but" class="on_off opacity_zero fa fa-pause" data-tab="pause"></i>
+                  <i id="start_cd" class=" on_off opacity_zero fa fa-play " style="font-size: 160px"
+                     data-tab="play"></i>
+                  <i id="refresh" class="display_none fa fa-refresh" style="font-size: 130px; opacity:0.08;left: 182px;
+                     top: 180px;"></i>
+                  <div class="dotCircle">
+                     <span id="custom_but" class="itemDot active itemDot1" data-tab="1">
+                        <i class="fa fa-gear"></i>
+                        <span class="forActive"></span>
+                     </span>
+                     <span class="itemDot itemDot2" data-tab="2">
+                        <i class="fa fa-clock-o"></i>
+                        <span class="forActive"></span>
+                     </span>
+                     <span class="itemDot itemDot3" data-tab="3">
+                        <i class="fa fa-save"></i>
+                        <span class="forActive"></span>
+                     </span>
+                     <span id="music_but" class="itemDot itemDot4" data-tab="4">
+                        <i class="fa fa-music" style="color:orange; transition :0.5s"></i>
+                        <span class="forActive"></span>
+                     </span>
+
+
+                  </div>
+
+                  <div class="contentCircle">
+                     <div id="toClick_id" class="toClick"></div>
+                     <div class="CirItem title_box active CirItem1">
+                        <h2 class="title"><span>Custom</span></h2>
+                        <p>Customize your own tomato session. Time ranges from a minimum of 5 seconds to a maximum of 1
+                           hour </p>
+                        <i class="fa fa-play"></i>
+                     </div>
+
+                     <div class="CirItem title_box CirItem2">
+                        <h2 class="title"><span>Preset</span></h2>
+                        <p>25 minutes of uninterrupted study/practice. No setup requried. Just click and go</p>
+                        <i class="fa fa-play"></i>
+                     </div>
+                     <div id="day_end" class="CirItem title_box CirItem3">
+                        <h2 class="title"><span>Day-end Review </span></h2>
+                        <p>Review the notes you've taken today to solidify your knowledge</p>
+                        <i class="fa fa-play"></i>
+                     </div>
+                     <div class="CirItem title_box CirItem4">
+                        <h2 class="title"><span>Music</span></h2>
+                        <p>Set up your music playlist. Copy your favorite youtube playlist to be played</p>
+                        <i class="fa fa-play"></i>
+                     </div>
+
+
+
+
+
+                  </div>
+
+               </div>
+               <div class=" circle_form selection_box_class" id="selection_box">
+                  <form class="opacity_zero" action="">
+                     <h5>請寫下三件你學到的事情</h5>
+                     <label for="thing0" value="">1. 分類:</label>
+                     <input type="textarea" id='thing0' name='thing0'><br>
+                     <label for="thing0desc">重點: </label><br>
+                     <textarea cols="45px" row="20" id='thing0desc' name='thing0desc'
+                        value="default text-holder"></textarea><br>
+                     <hr>
+                     <hr>
+                     <label for="thing1" value="unspecified">2. 分類:</label>
+                     <input type="textarea" id='thing1' name='thing1'><br>
+                     <label for="thing1desc">重點: </label><br>
+                     <textarea cols="45px" row="20" id='thing1desc' name='thing1desc'
+                        value="default text-holder"></textarea><br>
+                     <hr>
+                     <hr>
+                     <label for="thing2" value="unspecified">3. 分類:</label>
+                     <input type="textarea" id='thing2' name='thing2'><br>
+                     <label for="thing2desc">重點: </label><br>
+                     <textarea cols="45px" row="20" id='thing2desc' name='thing2desc'
+                        value="default text-holder"></textarea><br>
+                     <input type="submit">
+                  </form>
+               </div>
+    
+
+
+            </div>
+            <div class="col-lg-3 col-md-12"></div>
+
+            </span>
+         </div>
+         </div>
+   </section>
+
+
+</body>
+
+</html>
