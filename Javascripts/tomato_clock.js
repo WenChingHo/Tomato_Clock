@@ -138,6 +138,33 @@ function initialize_timer_setting(forced_default_time = default_time) {
     $('#text_timer').text(`${Math.floor(default_time / 60)}:${String(Math.floor((default_time % 60))).padStart(2, '0')}`)
 
 }
+function initialize_notecards(){
+        directions = [{
+            "id":0,
+            "time": '1',
+            "topic":"Features",
+            "desc": "These notecards are color-coded based on topics! "
+            },
+        {
+            "id":1,
+            "time":"2",
+            "topic": "Features",
+            "desc": "You can press the 'pencil' to edit the content, and you can press the 'garbage' to delete this notecard. The check on the top right is to remove the notecard once you've finished reviewing it **this session**. It will come back if you re-enter this page."
+            },
+        {
+            "id":2,
+            "time": "3",
+            "topic": "Welcome to Notes Review!",
+            "desc": "Once the tomato clock runs out, a survey will pop out and ask you to summarize **three** things you've learned during this session."
+            
+        }]    
+    if (window.localStorage.length == 0) {
+        for (var index=0; index < 3; index++){
+        localStorage.setItem(index, JSON.stringify(directions[index]))
+        console.log(directions[i])
+        }
+    }
+}
 
 function initialize_progress_bar() {
     $('.progress_bar').css({
@@ -247,7 +274,12 @@ function set_auto_rotate() {
 }
 
 set_auto_rotate()
-
+initialize_notecards()
+let response = [];
+let response_size = localStorage.length;
+for (let t = 0; t < response_size; t++) {
+    response.push(JSON.parse(localStorage.getItem(t)))
+}
 
 /*_________________________________________________________________
                 Button Hover Effects and Click Events
@@ -371,12 +403,12 @@ $('.toClick').on('mouseup', avoid_dup_event = function (event) {
         is_day_end = true;
         setTimeout(day_end_screen, 400)
         var t_date = $('#text_timer').text(`${(String(new Date().getMonth() + 1)).padStart(2, '0')}/${new Date().getDate()}`)
-        let topics = [];
-        let matching_color = [];
-        let color_code = 0;
+        let topics = ["welcome to Notes Review!", "Features"];
+        let matching_color = ['rgba(207, 162, 200, 1)', 'rgba(227, 142, 180,0.6)'];
+        let color_code = 0;  //change opacity automatically
         let color_index = 0;
         let remainder = 0;
-        let reserve = [[207, 162, 200], [227, 142, 180] /*purple*/]
+        let reserve = [[207, 162, 200], [227, 142, 180] /*purple*/] //Add color theme here
         for (var iter = 0; iter < response.length; iter++) {
             let newDiv = document.createElement("div");
             let newTitle = document.createElement('h3');
@@ -434,7 +466,7 @@ $('.toClick').on('mouseup', avoid_dup_event = function (event) {
             })
         }
         reverse_sort()
-
+        
         function reserve_div_transition_behavior() {
             if (last_sorted_clicked == false) {
                 reverse_sort();
@@ -706,12 +738,9 @@ $('svg').on('click', function () {
 })
 
 
+//notecard user guide
 
-let response = [];
-let response_size = localStorage.length;
-for (let t = 0; t < response_size; t++) {
-    response.push(JSON.parse(localStorage.getItem(t)))
-}
+
 
 
 
