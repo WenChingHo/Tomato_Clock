@@ -11,10 +11,10 @@ A short project to practice and sum up my 1st month of coding (frontend/backend)
 
 
 ### Usage:
-> Custom: Adjustable clock ranging from 5 second to 1 hr. 
-> Preset: 25 min clock. Perfect.
-> Music: 4 music selection tabs. Not suitable on github so only the aesthetic remains 
-> Day-end review: List out all the notes taken in notecard format. 
+> Custom: Adjustable clock ranging from 5 second to 1 hr. <br>
+> Preset: 25 min clock. Perfect. <br>
+> Music: 4 music selection tabs. Not suitable on github so only the aesthetic remains <br>
+> Day-end review: List out all the notes taken in notecard format. <br>
 >   notecard function: editable, deletalbe, hidable 
 
 
