@@ -155,7 +155,7 @@ function initialize_notecards(){
             "id":2,
             "time": "3",
             "topic": "Welcome to Notes Review!",
-            "desc": "Once the tomato clock runs out, a survey will pop out and ask you to summarize **three** things you've learned during this session."
+            "desc": "Once the tomato clock runs out, a survey will pop out and ask you to summarize **three** things you've learned during this session. The notes will be recorded in local storage and can be accessed here."
             
         }]    
     if (window.localStorage.length == 0) {
