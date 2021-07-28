@@ -4,7 +4,7 @@
 ## Table of contents
 * [Intro / General info](#general-info)
 * [Technologies](#technologies)
-* Version 2 Changelog (#Version 2 Changelog)
+* [Version 2 Changelog](#version-2-changelog)
 
 ## General info: 
 A short project to practice and sum up my 1st month of coding (frontend/backend). The goal was to create an application that can be use even after the presentation. Since there are still 4 month of bootcamp left, I decided to create this tomato clock to help me stay focus and organize.
