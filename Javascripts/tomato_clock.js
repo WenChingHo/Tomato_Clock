@@ -138,30 +138,30 @@ function initialize_timer_setting(forced_default_time = default_time) {
     $('#text_timer').text(`${Math.floor(default_time / 60)}:${String(Math.floor((default_time % 60))).padStart(2, '0')}`)
 
 }
-function initialize_notecards(){
-        directions = [{
-            "id":0,
-            "time": '1',
-            "topic":"Features",
-            "desc": "These notecards are color-coded based on topics! "
-            },
-        {
-            "id":1,
-            "time":"2",
-            "topic": "Features",
-            "desc": "You can press the 'pencil' to edit the content, and you can press the 'garbage' to delete this notecard. The check on the top right is to remove the notecard once you've finished reviewing it **this session**. It will come back if you re-enter this page."
-            },
-        {
-            "id":2,
-            "time": "3",
-            "topic": "Welcome to Notes Review!",
-            "desc": "Once the tomato clock runs out, a survey will pop out and ask you to summarize **three** things you've learned during this session. The notes will be recorded in local storage and can be accessed here."
-            
-        }]    
+function initialize_notecards() {
+    directions = [{
+        "id": 0,
+        "time": '1',
+        "topic": "Features",
+        "desc": "These notecards are color-coded based on topics! "
+    },
+    {
+        "id": 1,
+        "time": "2",
+        "topic": "Features",
+        "desc": "You can press the 'pencil' to edit the content, and you can press the 'garbage' to delete this notecard. The check on the top right is to remove the notecard once you've finished reviewing it **this session**. It will come back if you re-enter this page."
+    },
+    {
+        "id": 2,
+        "time": "3",
+        "topic": "Welcome to Notes Review!",
+        "desc": "Once the tomato clock runs out, a survey will pop out and ask you to summarize **three** things you've learned during this session. The notes will be recorded in local storage and can be accessed here."
+
+    }]
     if (window.localStorage.length == 0) {
-        for (var index=0; index < 3; index++){
-        localStorage.setItem(index, JSON.stringify(directions[index]))
-        console.log(directions[i])
+        for (var index = 0; index < 3; index++) {
+            localStorage.setItem(index, JSON.stringify(directions[index]))
+            console.log(directions[i])
         }
     }
 }
@@ -424,7 +424,7 @@ $('.toClick').on('mouseup', avoid_dup_event = function (event) {
             newTitle.innerText = `${response[iter].topic}`;
             newdesc.innerText = `${response[iter].desc}`;
             newid.innerText = response[iter].id;
-            $(newid).css({ "display": "none", "position": "absolute", "width ": "0"})
+            $(newid).css({ "display": "none", "position": "absolute", "width ": "0" })
             //Unique
             if (!topics.find(element => element == newTitle.innerText)) {
                 topics.push(newTitle.innerText);
@@ -466,7 +466,7 @@ $('.toClick').on('mouseup', avoid_dup_event = function (event) {
             })
         }
         reverse_sort()
-        
+
         function reserve_div_transition_behavior() {
             if (last_sorted_clicked == false) {
                 reverse_sort();
@@ -523,12 +523,12 @@ $('.toClick').on('mouseup', avoid_dup_event = function (event) {
                 const editorEle = document.querySelector('[contenteditable]');
                 console.log(editorEle)
                 // Handle the `paste` event
-                
+
                 $('.edit_save').on('mouseup', function () {
                     $(this).removeClass("edit_save far fa-save").addClass("edit_edit far fa-edit")
                     $(this).parent().css('background-color', `${matching_color[topics.indexOf($(this).siblings('h3').text())]}`)
                     response[cur_index].topic = $(this).siblings('h3').text();
-                    response[cur_index].desc = $(this).siblings('pre').html().replaceAll("<br>", "\n").replaceAll("&lt;", "<").replaceAll("&gt;", ">").replaceAll("&amp;","&");
+                    response[cur_index].desc = $(this).siblings('pre').html().replaceAll("<br>", "\n").replaceAll("&lt;", "<").replaceAll("&gt;", ">").replaceAll("&amp;", "&");
                     localStorage.setItem(cur_index, JSON.stringify(response[cur_index]))
                     response.splice(cur_index, 1, JSON.parse(localStorage.getItem(cur_index)))
                     $(this).siblings("pre, h3").attr("contenteditable", 'false')
@@ -616,7 +616,7 @@ $('.toClick').on('mouseup', avoid_dup_event = function (event) {
     }
     else {
         $('svg').off("mouseenter");
-        (remain == default_time ||default_time>1500) ? initialize_timer_setting(1500) : null;
+        (remain == default_time || default_time > 1500) ? initialize_timer_setting(1500) : null;
     }
 }); //end of switching display
 
@@ -650,15 +650,51 @@ $('.custom').on('mouseleave', function () {
                     Music button Selected Animation       
 ___________________________________________________________________*/
 let last_pressed = 0;
+//Audio play
+var christian = document.getElementById("christian");
+var nature = document.getElementById("nature")
+var christianisPlaying = false;
+var natureisPlaying = false;
+
+christian.onplaying = function () {
+    christianisPlaying = true;
+};
+christian.onpause = function () {
+    christianisPlaying = false;
+}
+nature.onplaying = function () {
+    natureisPlaying = true;
+};
+nature.onpause = function () {
+    natureisPlaying = false;
+}
+
+
 $('.music_selection div').on('click', function () {
     if (not_homepage == false) { return; } //only responde when it's in music selection page
     let index = this.id[6];
+    console.log(index)
+    if(index == 3){
+        christianisPlaying ? christian.pause() : christian.play();
+        nature.pause()
+
+    }
+    else if(index ==2){
+        natureisPlaying ? nature.pause() : nature.play();
+        christian.pause()
+
+    }
+    else{
+        nature.pause()
+        christian.pause()
+    }
     if (last_pressed == index) {
         $('.music_selection div').removeClass('music_selected music_deselected');
         $(`.music_sel i`).removeClass('background_white');
         last_pressed = 0;
         return;
     }
+    
     $('.music_selection div').removeClass('music_selected').addClass('music_deselected')
     $(`.music_sel i`).removeClass('background_white');
     $(`#music_${index}`).toggleClass('music_deselected music_selected')
@@ -955,7 +991,7 @@ window.addEventListener('paste', function (e) {
         ? (e.originalEvent || e).clipboardData.getData('text/plain')
         // For IE
         : (window.clipboardData ? window.clipboardData.getData('Text') : '');
-    console.log("hi" +text)
+    console.log("hi" + text)
     if (document.queryCommandSupported('insertText')) {
         document.execCommand('insertText', false, text);
     } else {
@@ -972,6 +1008,10 @@ window.addEventListener('paste', function (e) {
         selection.removeAllRanges();
         selection.addRange(range);
     }
+
+
+    
+
+
 });
 
-  
